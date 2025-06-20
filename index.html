@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hams Math</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    button {
+      background-color: orange;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkorange;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hams Math</h1>
+  <button onclick="window.location.href='data:text/html,<!DOCTYPE%20html><html lang='en'><head><meta charset='UTF-8'/><title>Private Collatz Conjecture Explorer</title><style>body {font-family: Arial, sans-serif; margin: 30px; background-color: #f0f0f0; color: #222; max-width: 600px;} input, button {font-size: 1rem; padding: 8px 12px; margin-top: 10px;} .results {margin-top: 20px; white-space: pre-wrap; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px #ccc;}</style></head><body><h1>🔒 Private Collatz Explorer</h1><p>Enter a positive integer below to see its Collatz sequence:</p><input type='number' id='startNum' min='1' placeholder='Enter positive integer' autofocus/><button onclick='runCollatz()'>Run</button><div class='results' id='output'></div><script>function runCollatz() {const output = document.getElementById('output'); let n = parseInt(document.getElementById('startNum').value); if (isNaN(n) || n < 1) {output.textContent = '⚠️ Please enter a valid positive integer.'; return;} let steps = 0; let sequence = [n]; while (n !== 1) {if (n % 2 === 0) {n = n / 2;} else {n = 3 * n + 1;} sequence.push(n); steps++;} output.textContent = `Sequence:\n${sequence.join(" → ")}\n\nSteps taken: ${steps}`;}</script></body></html>'">Click Me</button>
+</body>
+</html>
