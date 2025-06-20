@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trigonometry Tools</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    input { margin: 10px; padding: 8px; }
+    button { padding: 10px 20px; background-color: orange; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>📐 Trigonometry Tools</h1>
+  <p>Enter angle in degrees:</p>
+  <input id="angle" type="number" placeholder="Angle in degrees" />
+  <button onclick="calculateTrig()">Calculate</button>
+  <div id="results"></div>
+
+  <script>
+    function calculateTrig() {
+      const angle = parseFloat(document.getElementById("angle").value);
+      const radians = angle * Math.PI / 180;
+      const sin = Math.sin(radians).toFixed(4);
+      const cos = Math.cos(radians).toFixed(4);
+      const tan = Math.tan(radians).toFixed(4);
+      document.getElementById("results").innerHTML = `
+        <p>sin(${angle}°) = ${sin}</p>
+        <p>cos(${angle}°) = ${cos}</p>
+        <p>tan(${angle}°) = ${tan}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
