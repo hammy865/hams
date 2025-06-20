@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔐 Private Collatz Explorer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 30px;
+      max-width: 600px;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+    }
+    input, button {
+      font-size: 1rem;
+      padding: 8px 12px;
+      margin-top: 10px;
+    }
+    button {
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .results {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Private Collatz Explorer</h1>
+  <p>Enter a positive integer to see its Collatz sequence:</p>
+  <input type="number" id="startNum" min="1" placeholder="Enter positive integer" autofocus />
+  <button onclick="runCollatz()">Run</button>
+  <div class="results" id="output"></div>
+
+  <script>
+    function runCollatz() {
+      const output = document.getElementById("output");
+      let n = parseInt(document.getElementById("startNum").value);
+      if (isNaN(n) || n < 1) {
+        output.textContent = "⚠️ Please enter a valid positive integer.";
+        return;
+      }
+
+      let steps = 0;
+      let sequence = [n];
+      while (n !== 1) {
+        n = (n % 2 === 0) ? n / 2 : 3 * n + 1;
+        sequence.push(n);
+        steps++;
+      }
+
+      output.textContent = `Sequence:\n${sequence.join(" → ")}\n\nSteps taken: ${steps}`;
+    }
+  </script>
+</body>
+</html>
