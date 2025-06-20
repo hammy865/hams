@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🧠 Advanced Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      box-shadow: 0 0 10px #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Advanced Calculator</h1>
+  <p>Enter an expression (e.g., <code>sin(30)</code>, <code>3 + 4 * (2 - 1)</code>, <code>sqrt(16)</code>, <code>pi^2</code>)</p>
+  <input id="expression" type="text" placeholder="Type here..." />
+  <br />
+  <button onclick="calculate()">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      let input = document.getElementById("expression").value.toLowerCase();
+      const resultBox = document.getElementById("result");
+
+      // Replace common math symbols and constants
+      input = input.replace(/π|pi/g, "Math.PI")
+                   .replace(/e/g, "Math.E")
+                   .replace(/sqrt\(/g, "Math.sqrt(")
+                   .replace(/sin\(/g, "Math.sin(")
+                   .replace(/cos\(/g, "Math.cos(")
+                   .replace(/tan\(/g, "Math.tan(")
+                   .replace(/\^/g, "**");
+
+      try {
+        const result = eval(input);
+        if (isNaN(result)) {
+          resultBox.textContent = "⚠️ Invalid expression.";
+        } else {
+          resultBox.textContent = "Result: " + result;
+        }
+      } catch (err) {
+        resultBox.textContent = "⚠️ Error: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
