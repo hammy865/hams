@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculus Tools</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    select, button { padding: 10px; margin: 10px; }
+  </style>
+</head>
+<body>
+  <h1>📊 Calculus Derivatives</h1>
+  <p>Select a function:</p>
+  <select id="function">
+    <option value="x">f(x) = x</option>
+    <option value="x2">f(x) = x²</option>
+    <option value="x3">f(x) = x³</option>
+    <option value="sin">f(x) = sin(x)</option>
+    <option value="cos">f(x) = cos(x)</option>
+    <option value="ln">f(x) = ln(x)</option>
+  </select>
+  <button onclick="getDerivative()">Show Derivative</button>
+  <div id="output"></div>
+
+  <script>
+    function getDerivative() {
+      const f = document.getElementById("function").value;
+      let derivative = "";
+      if (f === "x") derivative = "f'(x) = 1";
+      if (f === "x2") derivative = "f'(x) = 2x";
+      if (f === "x3") derivative = "f'(x) = 3x²";
+      if (f === "sin") derivative = "f'(x) = cos(x)";
+      if (f === "cos") derivative = "f'(x) = -sin(x)";
+      if (f === "ln") derivative = "f'(x) = 1/x";
+      document.getElementById("output").innerText = derivative;
+    }
+  </script>
+</body>
+</html>
